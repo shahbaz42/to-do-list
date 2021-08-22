@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true})); //linking bodyparser with express
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 var tasks = [];
@@ -24,7 +25,6 @@ app.get("/", function(req, res){
 
 
 app.post("/", function(req, res){
-  console.log(req.body.taskName);
   tasks.push(req.body.taskName);  // appends submitted task to tasks list
   res.redirect("/");
 });
