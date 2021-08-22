@@ -3,14 +3,17 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-const date = new Date();
+app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
+  const date = new Date();
   var day = date.getDay() ;
   if (day==0 || day==6){
-    res.send("Today is a weekend!!");
+    dayType = "Weekend";
+    res.render('list', {kindOfDay : dayType});
   }else{
-    res.send("Today is a work day!!");
+    dayType = "Not A Weekend";
+    res.render('list', {kindOfDay : dayType});
   }
 });
 
