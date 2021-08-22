@@ -8,13 +8,8 @@ app.set('view engine', 'ejs');
 app.get("/", function(req, res){
   const date = new Date();
   var day = date.getDay() ;
-  if (day==0 || day==6){
-    dayType = "Weekend";
-    res.render('list', {kindOfDay : dayType});
-  }else{
-    dayType = "Not A Weekend";
-    res.render('list', {kindOfDay : dayType});
-  }
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  res.render('list', {dayName : days[day]});
 });
 
 app.listen(8000,function(){
