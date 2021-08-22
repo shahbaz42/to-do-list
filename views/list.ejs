@@ -3,14 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>To-Do List</title>
+    <script src="https://kit.fontawesome.com/86113b2a69.js" crossorigin="anonymous"></script>
   </head>
   <body>
-
-    <% if (dayName == "Sunday" || dayName == "Saturday" ){ %>
-      <h1 style="color : green"><%= dayName %> list.</h1>
-    <% }else{ %>
-      <h1 style="color : red"><%= dayName %> list.</h1>
-    <%}%>
-
+    <h1 style=""><%= dayName %></h1>
+    <ul>
+      <% for (var i = 0 ; i < taskList.length ; i++){ %>
+        <li><%=taskList[i]%></li>
+      <% } %>
+    </ul>
+    <form class="" action="/" method="post">
+      <input type="text" name="taskName" placeholder="Add Task">
+      <button type="submit" name="button"><i class="fas fa-plus"></i></button>
+    </form>
   </body>
 </html>
