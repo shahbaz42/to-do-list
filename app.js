@@ -8,6 +8,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 var tasks = [];
+var workTasks = [];
 
 app.get("/", function(req, res){
   const today = new Date();
@@ -19,15 +20,24 @@ app.get("/", function(req, res){
   };
 
   var formattedDate = today.toLocaleDateString("en-US", options);
-  res.render('list', {dayName : formattedDate, taskList : tasks});
+  res.render('list', {listTitle : formattedDate, taskList : tasks});
 });
 
+app.get("/work", function(req, res){
+  res.render("list", {listTitle : "Work", taskList : workTasks});
+});
 
 
 app.post("/", function(req, res){
-  tasks.push(req.body.taskName);  // appends submitted task to tasks list
-  res.redirect("/");
+  if (req.body.button == "Work"){      //identifying page of request by passing page name as a button value.
+    workTasks.push(req.body.taskName); // if request is coming from work page then append in workTasks array
+    res.redirect("/work");
+  }else{
+    tasks.push(req.body.taskName);  // appends submitted task to tasks list
+    res.redirect("/");
+  }
 });
+
 
 
 app.listen(3000,function(){
