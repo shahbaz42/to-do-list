@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>To-Do List</title>
-  <script src="https://kit.fontawesome.com/86113b2a69.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-
-</head>
+<%- include('header'); -%>
 
 <body>
-
   <% if (listTitle == "Work"){ %>
     <a href="/..">
       <div class="box" id="heading">
@@ -27,8 +14,6 @@
       </div>
     </a>
   <% } %>
-
-
 
   <div class="box">
     <% for (var i = 0 ; i < taskList.length ; i++){ %>
@@ -45,4 +30,4 @@
   </div>
 </body>
 
-</html>
+<%- include('footer'); -%>
