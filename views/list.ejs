@@ -13,9 +13,22 @@
 </head>
 
 <body>
-  <div class="box" id="heading">
-    <h1><%= dayName %></h1>
-  </div>
+
+  <% if (listTitle == "Work"){ %>
+    <a href="/..">
+      <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+      </div>
+    </a>
+  <% }else{ %>
+    <a href="/work">
+      <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+      </div>
+    </a>
+  <% } %>
+
+
 
   <div class="box">
     <% for (var i = 0 ; i < taskList.length ; i++){ %>
@@ -27,7 +40,7 @@
 
     <form class="item" action="/" method="post">
       <input type="text" name="taskName" placeholder="Add Task" autocomplete="off">
-      <button type="submit" name="button"><i class="fas fa-plus"></i></button>
+      <button type="submit" name="button" value="<%= listTitle %>"><i class="fas fa-plus"></i></button>
     </form>
   </div>
 </body>
