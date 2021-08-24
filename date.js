@@ -59,7 +59,13 @@ exports.dateWithMessage = function(message){
 }
 
 exports.monthName = function(){
+  const today = new Date();
 
+  var options = {
+    month : 'long'
+  };
+
+  return formattedDate = today.toLocaleDateString("en-US", options);
 }
 
 // console.log(module);
