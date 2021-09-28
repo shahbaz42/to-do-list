@@ -17,9 +17,9 @@
 
   <div class="box">
     <% taskList.forEach(function(item){ %>
-    <form action="">
+    <form action="/delete" method="POST">
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" name="checkbox" value="<%=item.id%>" onChange="this.form.submit()"/>
         <p class=""><%=item.name%></p>
       </div>
     </form>

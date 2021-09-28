@@ -28,16 +28,6 @@ const defaultItems = [item1, item2];
 
 app.get("/", function(req, res){
   Item.find(function(err, results){
-    if (results.length === 0){
-      Item.insertMany(defaultItems, function(err){
-        if(err){
-          console.log(err);
-        }else{
-          console.log("Successfully inserted an array");
-        }
-      })
-      res.render('list', {listTitle : date.getDate(), taskList : results});
-    }
     res.render('list', {listTitle : date.getDate(), taskList : results});
   });
 });
@@ -58,6 +48,16 @@ app.post("/", function(req, res){
     itemToAdd.save();
     res.redirect("/");
   }
+});
+
+app.post("/delete", function(req, res){
+  const checkedItemId = req.body.checkbox;
+  Item.findByIdAndRemove(checkedItemId, function(err){
+    if(err){
+      console.log(err);
+    }
+  })
+  res.redirect("/");
 });
 
 app.get("/about", function(req, res){
