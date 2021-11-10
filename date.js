@@ -1,4 +1,3 @@
-
 // console.log(module);
 
 // Module {
@@ -32,41 +31,51 @@
 //   ]
 // }
 
-module.exports.getDate = function(){
 
+
+module.exports.getDate = function () {
   const today = new Date();
 
   var options = {
-    weekday: 'long',
-    day: 'numeric',
-    month : 'long'
+    weekday: "long",
+    day: "numeric",
+    month: "long",
   };
 
-  return formattedDate = today.toLocaleDateString("en-US", options);
+  return (formattedDate = today.toLocaleDateString("en-US", options));
+};
 
-}
 
-exports.dateWithMessage = function(message){
+
+
+exports.dateWithMessage = function (message) {
   const today = new Date();
 
   var options = {
-    weekday: 'long',
-    day: 'numeric',
-    month : 'long'
+    weekday: "long",
+    day: "numeric",
+    month: "long",
   };
 
-  return formattedDate = message + today.toLocaleDateString("en-US", options);
-}
+  return (formattedDate = message + today.toLocaleDateString("en-US", options));
+};
 
-exports.monthName = function(){
+
+
+
+exports.monthName = function () {
   const today = new Date();
 
   var options = {
-    month : 'long'
+    month: "long",
   };
 
-  return formattedDate = today.toLocaleDateString("en-US", options);
-}
+  return (formattedDate = today.toLocaleDateString("en-US", options));
+};
+
+
+
+
 
 // console.log(module);
 // Module {
