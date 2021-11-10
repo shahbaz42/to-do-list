@@ -16,16 +16,6 @@ const itemsSchema = {    // schema for items
 
 const Item  =  mongoose.model("Item", itemsSchema);
 
-const item1 = new Item({
-  name : "Welcome to your to do list"
-})
-
-const item2 = new Item({
-  name : "Hit the + button to add task"
-})
-
-const defaultItems = [item1, item2];
-
 app.get("/", function(req, res){
   Item.find(function(err, results){
     res.render('list', {listTitle : date.getDate(), taskList : results});
