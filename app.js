@@ -1,10 +1,9 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const date = require (__dirname + "/date.js");
 const mongoose = require("mongoose"); //requiring mongoose
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true})); //linking bodyparser with express
+app.use(express.urlencoded({extended: true})); 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
